@@ -81,6 +81,43 @@ def search(request):
                     # stops searching when no more results found.
                     flag = 0
 
+            if not results:
+                # opens repositories tab if no results found for the org
+
+                data = urllib.request.urlopen(search_url+ "?tab=repositories").read()
+                data = data.decode("utf-8")
+
+                # Then finds results
+
+                flag = 1
+                repo_end = 0
+                results = []
+
+                # finds all repos and appends to results
+                while flag:
+
+                    # strips data so that re.search doesn't searches
+                    # already searched repo names.
+                    data = data[repo_end:]
+
+                    try:
+                        # starting index for a repo name
+                        repo_start = re.search('itemprop="name codeRepository" >',data).end()
+
+                        data = data[repo_start:]
+
+                        # end index for the repo name
+                        repo_end = re.search('</a>',data).start()
+
+                        repo = data[:repo_end]
+                        # result is the string between two searches
+                        results.append(repo.strip())
+
+                    except:
+                        # stops searching when no more results found.
+                        flag = 0
+
+
         # If Entered URL belongs to a repository
         if cont =='repo':
             try:
