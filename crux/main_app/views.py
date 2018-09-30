@@ -18,7 +18,7 @@ def find_readme(readme_find,data):
     readme = data[readme_start:readme_end]
     return readme
 
-@cache_page(60*60)   # caches the view for an hour. diff searches have diff cache
+@cache_page(60*5)   # caches the view for 5 minutes. diff searches have diff cache
 def search(request):
     ''' Searches for repositories
         if searched URL belongs to an organization.
