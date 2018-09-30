@@ -6,7 +6,7 @@
 ```bash
    python manage.py runserver
 ```
--Go to url 127.0.0.1/search to search for a repository or an org.
+-Go to url 127.0.0.1:8000/search to search for a repository or an org.
 
 **If possible use it on a faster internet. BITS-WIFI not recommended as github is really slow**
 
