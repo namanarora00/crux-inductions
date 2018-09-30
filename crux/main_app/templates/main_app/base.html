@@ -18,14 +18,10 @@
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
 </div>
+
 {% for repo in results %}
-    
     <h1><a href="/search/?query={{query}}/{{repo}}">{{repo}}</a></h1>
 {% endfor %}
-
-{% if readme %}
-
-{% endif %}
 
   </body>
 </html>

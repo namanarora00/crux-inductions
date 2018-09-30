@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from main_app.forms import *
 import re
 import urllib.request
 from django.http import HttpResponse
@@ -103,9 +102,8 @@ def search(request):
                 return HttpResponse( "<h1>README</h1>" + readme)
 
             else:
-                # if readme is present in the docs directory
                 docs_find = re.search('title="docs"', data)
-
+                
                 if docs_find:
                     data = data[docs_find.end():]
                     

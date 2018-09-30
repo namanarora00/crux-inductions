@@ -51,6 +51,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# CACHE SETTINGS
+# Makes a new table in database called 'my_cache_table'
+# cached data is stored in this table
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
